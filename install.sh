@@ -2,16 +2,20 @@
 
 # Get location of script, allows script to be run from anywhere
 DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-echo $DOTFILES_DIR
 
-# Symlink dotfiles from repo folder to home directory 
-ln -sfv "$DOTFILES_DIR/.gitconfig" ~
-ln -sfv "$DOTFILES_DIR/.vimrc" ~
-
-# Symlink pathogen folder, use vimfiles if windows, .vim for everything else 
+# WINDOWS
 if [[ "$OSTYPE" == "msys" ]] || [[ "$OSTYPE" == "cygwin" ]]; then
-	ln -s "$DOTFILES_DIR/vim_pathogen" ~/vimfiles
+	echo "NOTE: If you receive an insufficient privileges error,\
+	try running the bat file from a command prompt as Administrator"
+	cmd //c install.bat
+
+# LINUX / OSX
 else
-	ln -s "$DOTFILES_DIR/vim_pathogen" ~/.vim
+	# Symlink dotfiles from repo folder to home directory 
+	ln -sfv "$DOTFILES_DIR/.gitconfig" ~
+	ln -sfv "$DOTFILES_DIR/.vimrc" ~
+
+	# Symlink vim pathogen folder
+	ln -s "$DOTFILES_DIR/.vim" ~/.vim
 fi
 

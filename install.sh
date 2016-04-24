@@ -5,8 +5,8 @@ DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 echo $DOTFILES_DIR
 
 # Symlink dotfiles from repo folder to home directory 
-ln -sft "$DOTFILES_DIR/.gitconfig" ~
-ln -sft "$DOTFILES_DIR/.vimrc" ~
+ln -sfv "$DOTFILES_DIR/.gitconfig" ~
+ln -sfv "$DOTFILES_DIR/.vimrc" ~
 
 # Symlink pathogen folder, use vimfiles if windows, .vim for everything else 
 if [[ "$OSTYPE" == "msys" ]] || [[ "$OSTYPE" == "cygwin" ]]; then

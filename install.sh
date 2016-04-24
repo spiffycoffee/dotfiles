@@ -10,8 +10,8 @@ ln -sfv "$DOTFILES_DIR/.vimrc" ~
 
 # Symlink pathogen folder, use vimfiles if windows, .vim for everything else 
 if [[ "$OSTYPE" == "msys" ]] || [[ "$OSTYPE" == "cygwin" ]]; then
-	ln -s "$DOTFILES_DIR/vim_pathogen" ~/vimfiles
+	ln -s "$DOTFILES_DIR/.vim" ~/vimfiles
 else
-	ln -s "$DOTFILES_DIR/vim_pathogen" ~/.vim
+	ln -s "$DOTFILES_DIR/.vim" ~/.vim
 fi
 

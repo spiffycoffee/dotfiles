@@ -13,6 +13,7 @@ set background=dark
 
 set enc=utf8
 "let g:airline_powerline_fonts = 0
+set laststatus=2  " always display statusline
 set noshowmode
 
 :command W w   " permit butterfingers

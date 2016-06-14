@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='c:\Users\TechBoy\Programmin\fivetribes'
-let g:netrw_dirhist_2='c:\Users\TechBoy\Programmin\learning\react-tutorial\public'
-let g:netrw_dirhist_3='c:\Users\TechBoy\Programmin\spiffycoffee\_layouts'
-let g:netrw_dirhist_4='c:\Users\TechBoy\Programmin\spiffycoffee\_includes'
-let g:netrw_dirhist_5='c:/Users/TechBoy/Programmin/spiffycoffee/_includes'

@@ -11,13 +11,18 @@ colorscheme gruvbox
 let g:gruvbox_termcolors=16
 set background=dark
 
+set nocompatible
 set enc=utf8
-"let g:airline_powerline_fonts = 0
+
+" Disable beeping
+set vb t_vb=
+
 set laststatus=2  " always display statusline
 set noshowmode
 
-:command W w   " permit butterfingers
-:command Wq wq " permit butterfingers
+" Permit butterfingers
+cmap W w
+cmap Q q
 
 " remap split navigation to ctrl-*
 nnoremap <C-H> <C-W><C-H>
@@ -27,13 +32,12 @@ nnoremap <C-L> <C-W><C-L>
 
 let mapleader=" "
 
-" Command - T
-let g:CommandTCancelMap = ['<ESC>', '<C-c>']
-
-set nocompatible
-
-" Disable beeping
-set vb t_vb=
+" Edit vimrc
+nnoremap <leader>v :vsplit $MYVIMRC<cr>
+augroup reload_vimrc 
+	autocmd!
+	autocmd BufWritePost $MYVIMRC source % 
+augroup END 
 
 " Tabs count as this many columns 
 set tabstop=4 
@@ -60,10 +64,29 @@ set foldmethod=indent
 " Start with folds open
 set foldlevelstart=99
 
-" Cursor goes to beginning of tab
-" NOTE: extra space before EOL 
-set list listchars=tab:\ \ 
+" Toggle showing whitespace characters
+let g:show_whitespace = 0
+set list
+nnoremap <leader>s :call ToggleSpecialChars()<cr> 
+function! ToggleSpecialChars()
+	if g:show_whitespace
+		" Normal use of list is showing whitespace chars
+		set listchars=tab:>\ ,nbsp:.,trail:.,eol:%
+		let g:show_whitespace = 0
+	else
+		" Abuse list to place cursor at beginning tab
+		set listchars=tab:\ \ ,
+		let g:show_whitespace = 1
+	endif
+endfunction
+call ToggleSpecialChars()
 
+" Command - T
+let g:CommandTCancelMap = ['<ESC>', '<C-c>']
+
+" Vim Airline
+"let g:airline_powerline_fonts = 0
+let g:airline#extensions#tabline#enabled = 1
 
 " Python tabs to spaces
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4

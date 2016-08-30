@@ -19,3 +19,11 @@ else
 	ln -s "$DOTFILES_DIR/.vim" ~/.vim
 fi
 
+# Load up git submodules (my vim plugins)
+git submodule init
+git submodule update
+
+# Build Command-T
+cd ~/.vim/bundle/command-t/ruby/command-t
+ruby extconf.rb
+make

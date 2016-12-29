@@ -13,6 +13,7 @@ set background=dark
 
 set nocompatible
 set enc=utf8
+syntax enable
 
 " Disable beeping
 set vb t_vb=

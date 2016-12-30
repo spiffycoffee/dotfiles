@@ -8,8 +8,12 @@ if !has("gui_running")
 	let &t_AF="\e[38;5;%dm"
 endif
 colorscheme gruvbox
-let g:gruvbox_termcolors=16
 set background=dark
+"let g:gruvbox_termcolors=16
+
+if (has("termguicolors"))
+	set termguicolors  " enable 24 bit colors if supported
+endif
 
 set nocompatible
 set enc=utf8

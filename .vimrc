@@ -55,6 +55,8 @@ set softtabstop=4
 set incsearch hlsearch
 set ignorecase
 set smartcase
+" Clear search highlighting
+nnoremap <CR> :noh<CR><CR>
 
 " highlight line cursor is on
 set cursorline

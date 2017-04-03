@@ -50,6 +50,8 @@ set tabstop=4
 set shiftwidth=4
 " How many columns when hitting tab in insert mode
 set softtabstop=4
+" Toggle formatting when pasting from clipboard
+set pastetoggle=<leader>p
 
 " Search highlighting
 set incsearch hlsearch
@@ -94,6 +96,17 @@ let g:CommandTCancelMap = ['<ESC>', '<C-c>']
 " Vim Airline
 "let g:airline_powerline_fonts = 0
 let g:airline#extensions#tabline#enabled = 1
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['flake8']
 
 " Python tabs to spaces
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4

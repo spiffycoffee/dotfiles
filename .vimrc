@@ -37,6 +37,8 @@ nnoremap <C-L> <C-W><C-L>
 
 let mapleader=" "
 
+" Edit bash_profile
+nnoremap <leader>b :vsplit $DOTFILES/.bash_profile<cr>
 " Edit vimrc
 nnoremap <leader>v :vsplit $MYVIMRC<cr>
 augroup reload_vimrc 

@@ -23,7 +23,13 @@ fi
 git submodule init
 git submodule update
 
+# Install bash-git-prompt
+git clone https://github.com/magicmonty/bash-git-prompt.git .bash-git-prompt --depth=1
+
 # Build Command-T
 cd ~/.vim/bundle/command-t/ruby/command-t
 ruby extconf.rb
 make
+
+# Add dotfiles bash_profile to main bash_profile
+echo "source $DOTFILES_DIR/.bash_profile" >> ~/.bash_profile

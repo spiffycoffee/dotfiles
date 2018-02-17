@@ -26,8 +26,12 @@ set laststatus=2  " always display statusline
 set noshowmode
 
 " Permit butterfingers
-cmap W w
-cmap Q q
+command! WQ wq
+command! Wq wq
+command! W w
+command! Q q
+command! QA qa
+command! Qa qa
 
 " remap split navigation to ctrl-*
 nnoremap <C-H> <C-W><C-H>
@@ -39,12 +43,16 @@ let mapleader=" "
 
 " Edit bash_profile
 nnoremap <leader>b :vsplit $DOTFILES/.bash_profile<cr>
+nnoremap <leader>B :vsplit ~/.bash_profile<cr>
 " Edit vimrc
 nnoremap <leader>v :vsplit $MYVIMRC<cr>
 augroup reload_vimrc 
 	autocmd!
 	autocmd BufWritePost $MYVIMRC source % 
 augroup END 
+
+" Close buffer but keep split
+map <leader>w :bp<bar>sp<bar>bn<bar>bd<cr>
 
 " Tabs count as this many columns 
 set tabstop=4 
@@ -53,7 +61,7 @@ set shiftwidth=4
 " How many columns when hitting tab in insert mode
 set softtabstop=4
 " Toggle formatting when pasting from clipboard
-set pastetoggle=<leader>p
+nnoremap <leader>p :set paste!<cr>
 
 " Search highlighting
 set incsearch hlsearch
@@ -61,6 +69,8 @@ set ignorecase
 set smartcase
 " Clear search highlighting
 nnoremap <CR> :noh<CR><CR>
+" Search forward
+nnoremap <leader>/ *N
 
 " highlight line cursor is on
 set cursorline
@@ -69,6 +79,7 @@ set colorcolumn=80
 " Enable line numbers
 set number
 set numberwidth=4
+nnoremap <leader>l :set number!<cr>
 
 " Automatically create folds based off of indent 
 set foldmethod=indent
@@ -92,6 +103,9 @@ function! ToggleSpecialChars()
 endfunction
 call ToggleSpecialChars()
 
+" Remove trailing whitespace
+nnoremap <leader>d :%s/\s\+$//e<cr> :noh<cr><cr>
+
 " Command - T
 let g:CommandTCancelMap = ['<ESC>', '<C-c>']
 
@@ -105,11 +119,12 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['flake8']
 
-" Python tabs to spaces
+" tabs to spaces for certain files
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
+autocmd Filetype xml setlocal expandtab tabstop=2 shiftwidth=2
 filetype plugin indent on

@@ -1,8 +1,13 @@
 alias gti='echo "vroom!"; git'
+alias {vi,vim}='nvim'
+alias ls='ls --color=auto'
 
 export DOTFILES=~/dotfiles
 
 source ${DOTFILES}/git-completion.bash
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/shims:$PATH"
 
 # Display count of background jobs
 function bg_jobs {

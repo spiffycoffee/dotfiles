@@ -2,7 +2,7 @@ execute pathogen#infect()
 
 " Enable vim colors in terminals
 if !has("gui_running")
-	set term=xterm
+	" set term=xterm
 	set t_Co=256
 	let &t_AB="\e[48;5;%dm"
 	let &t_AF="\e[38;5;%dm"
@@ -75,7 +75,7 @@ nnoremap <leader>/ *N
 " highlight line cursor is on
 set cursorline
 " Set warning track position
-set colorcolumn=80
+set colorcolumn=80,100
 " Enable line numbers
 set number
 set numberwidth=4
@@ -107,6 +107,8 @@ call ToggleSpecialChars()
 nnoremap <leader>d :%s/\s\+$//e<cr> :noh<cr><cr>
 
 " Command - T
+lua require('wincent.commandt').setup()
+lua vim.keymap.set('n', '<Leader>t', '<Plug>(CommandTRipgrep)')
 let g:CommandTCancelMap = ['<ESC>', '<C-c>']
 
 " Vim Airline

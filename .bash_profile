@@ -8,6 +8,7 @@ source ${DOTFILES}/git-completion.bash
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/shims:$PATH"
+eval "$(pyenv init -)"
 
 # Display count of background jobs
 function bg_jobs {

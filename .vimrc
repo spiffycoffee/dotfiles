@@ -115,17 +115,6 @@ let g:CommandTCancelMap = ['<ESC>', '<C-c>']
 "let g:airline_powerline_fonts = 0
 let g:airline#extensions#tabline#enabled = 1
 
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers = ['flake8']
-
 " tabs to spaces for certain files
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
 autocmd Filetype xml setlocal expandtab tabstop=2 shiftwidth=2

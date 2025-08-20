@@ -1,3 +1,4 @@
 .netrwhist
 *.swp
 .bash-git-prompt
+.DS_Store
